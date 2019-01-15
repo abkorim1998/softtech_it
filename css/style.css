@@ -1,0 +1,206 @@
+.logo img{
+    max-width: 100%;
+}
+
+
+.user_img{
+    text-align: center;
+    margin-top: -40px;
+}
+.comment_ico{
+    box-shadow: 0px 0px 13px 3px black;
+}
+.user_img img{
+    box-shadow: 1px 0px 11px 3px #000000;
+}
+.contac_section{
+    background-color: #292525;
+    box-shadow: 2px 2px 12px 0px #000000;
+    padding: 10px;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+}
+.contac_section a{
+    background: #292525 !important;
+    border-color: rgba(90, 86, 86, 0.5803921568627451) !important;
+    color: #7f7070 !important;
+    text-shadow: 1px 1px 5px black !important;
+}
+.contac_section a:focus{
+    box-shadow: 0 0 12px rgb(0, 0, 0) !important;
+}
+.user_info{
+    background-color: #292525;
+    box-shadow: 2px 2px 12px 0px #000000;
+    padding: 10px;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+    margin-top: 2px;
+}
+.news_info{
+    background-color: #292525;
+    box-shadow: 2px 2px 12px 0px #000000;
+    padding: 10px;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+    margin-top: 2px;
+
+}
+.news_info hr{
+    border-color: rgba(90, 86, 86, 0.5803921568627451);
+    display: block;
+}
+.header,
+.footer {
+    background-color: #292525 !important;
+    box-shadow: 2px 2px 12px 0px #000000 !important;
+    color: #7f7070 !important;
+    text-shadow: 1px 1px 5px black !important;
+    border: none !important;
+}
+
+
+/* chating page sltyling */
+/* Chat containers */
+.container {
+    border: 2px solid #dedede;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #292525;
+    box-shadow: 2px 2px 12px 0px #000000;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+}
+
+/* Darker chat container */
+.darker {
+    background-color: rgb(53, 47, 47);
+    box-shadow: 2px 2px 12px 0px #000000;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+    border-color: #ccc;
+
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Style images */
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+/* Style the right image */
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+/* Style time text */
+.time-right {
+    float: right;
+    color: rgba(90, 86, 86, 0.5803921568627451);
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: rgba(90, 86, 86, 0.5803921568627451);
+}
+
+/* send button styling */
+.navigation_icon{
+    font-size: 30px !important;
+    box-shadow: 0 0 13px 3px black;
+    margin: 10px !important;
+    background-color: #292525 !important;
+}
+.navigation_icon_hide:focus{
+    box-shadow: 2px 2px 12px 0px #000000 !important;
+}
+.send_icon {
+    display: inline-block;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+}
+.sender_name_panel{
+    background-color: #292525 !important;
+    box-shadow: 2px 2px 12px 0px #000000 !important;
+    padding: 10px;
+    color: #7f7070 !important;
+    text-shadow: 1px 1px 5px black !important;
+    border-radius: 27px 3px 3px 27px !important;
+    margin-left: -10px;
+    display: none;
+    
+}
+.send_section{
+    background: none !important;
+    border-color: rgba(221, 221, 221, 0) !important;
+
+}
+.messege_area{
+    background-color: #292525;
+    box-shadow: 2px 2px 12px 0px #000000;
+    padding: 10px;
+    color: #7f7070;
+    text-shadow: 1px 1px 5px black;
+    display: none;
+}
+
+/*user page styling  */
+.user_roll,
+.user_name,
+.user_id{
+    margin: 0;
+}
+.u-p-btn{
+    padding: 3px 3px 3px 3px !important;
+    margin-left: 0 !important;
+    margin-top: 5px !important;
+    background-color: #292525 !important;
+    box-shadow: 2px 2px 12px 0px #000000 !important;
+    color: #7f7070 !important;
+    text-shadow: 1px 1px 5px black !important;
+    border-color: rgba(90, 86, 86, 0.5803921568627451) !important;
+}
+
+/*LOGIN USER */
+.login_user {
+    margin: 0;
+    text-align: center;
+}
+.container hr {
+    border-color: rgba(90, 86, 86, 0.5803921568627451);
+}
+
+
+/* messege_page scrolign */
+.messege_page{
+    /* height: 340px; */
+    overflow: auto;
+   
+}
+
+.messege_content {
+    padding-top: 0 !important;
+}
+
+/*dasbord image*/
+.user_img img {
+
+    max-width: 125px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}

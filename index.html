@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="js/mobail_js/jquery.mobile-1.4.5.min.css">
+    
+
+    <title>Document</title>
+</head>
+<body>
+    
+
+<!-- Start of 1 page -->
+<div data-role="page" id="login-page">
+
+	<div class="header" data-role="header" data-position="fixed">
+		<h1>Log In</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+        <div class="logo">
+            <img src="img/SoftTech-IT-logo.png" alt="">
+            <a href="#" class="url">what is url</a>
+        </div>
+        <div class="Login-form">
+            <input type="email" id="login_email" placeholder="Email" value="abkorim1998@Gmail.com">
+            <input type="password" id="login_password" placeholder="Password" value="abkorim2">
+            <div class="form-button">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all" id="login_btn">Log In</a></div>
+                    <div class="ui-block-b"><a href="#register-page" class="ui-shadow ui-btn ui-corner-all">Register</a></div>
+                </div>
+            </div>
+        </div>
+        
+	</div><!-- /content -->
+
+	<div class="footer" data-role="footer" data-position="fixed">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+
+<!-- Start of 2 page -->
+<div data-role="page" id="register-page">
+
+	<div class="header" data-role="header" data-position="fixed">
+		<h1>Register</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+            <div class="logo">
+                    <img src="img/SoftTech-IT-logo.png" alt="">
+                </div>
+                <div class="register-form">
+                    <input type="text" id="re_name" placeholder="Full Name">
+                    <input type="text" id="re_roll" placeholder="Roll Number">
+                    <input type="tel" id="re_phone" placeholder="Phone Number">
+                    <input type="email" id="re_email" placeholder="Email">
+                    <input type="password" id="re_password" placeholder="Password">
+                    <div class="form-button">
+                        <div class="ui-grid-b">
+                            <div class="ui-block-a"><a href="#login-page" class="ui-shadow ui-btn ui-corner-all">Log In</a></div>
+                            <div class="ui-block-b"><a id="register_btn" class="ui-shadow ui-btn ui-corner-all">Register</a></div>
+                        </div>
+                    </div>
+                </div>
+	</div><!-- /content -->
+    
+	<div class="footer" data-role="footer" data-position="fixed">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+
+<!-- Start of 3 page -->
+<div data-role="page" id="Dashboard">
+
+    <div class="header" data-role="header" data-position="fixed">
+        <h1>Dashboard</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <div class="user_section">
+
+            <!-- comment& comment& -->
+            <a href="#" class="comment_ico ui-btn ui-icon-comment ui-btn-icon-notext ui-corner-all">No text</a>
+
+
+            <!-- user_img & user_img -->
+            <div class="user_img">
+                <img src="img/user-image-.png">
+                <input type="file" name="file" id="file"> 
+                <a href="#" class="url">what is url</a>
+            </div>
+
+            <!-- contac_section & contac_section -->
+            <div class="contac_section">
+                <div data-demo-html="true" data-demo-css="#wrap">
+                    <div class="ui-grid-b">
+                        <div class="ui-block-a"><a href="#class-page" class="ui-shadow ui-btn ui-corner-all">Class</a></div>
+                        <div class="ui-block-b"><a href="#" class="sign-out ui-shadow ui-btn ui-corner-all">Sign out</a></div>
+                        <div class="ui-block-c"><a href="#user_page" class="user_page_btn ui-shadow ui-btn ui-corner-all">user</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- user_info & user_info -->
+            <div class="user_info">
+                    <div class="user_name"></div>
+                    <div class="user_roll"></div>
+                    <div class="user_phone"></div>
+                    <div class="user_email"></div>
+                    <div class="user_password"></div>
+            </div>
+
+            <!-- news_info & news_info -->
+            <div class="news_info">
+                <div class="heading">NEWS HEADING</div>
+                <hr>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+
+        </div>
+    </div><!-- /content -->
+
+    <div class="footer" data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+   
+
+
+<!-- MESSEGE PAGE -->
+<div data-role="page" id="class-page">
+
+        <div class="header" data-role="header" data-position="fixed">
+            <h1 class="receiver_name">Tack Your Class</h1>
+        </div><!-- /header -->
+    
+        <div role="main" class="ui-content messege_content ">
+
+            <!-- Messege SHOWING HERE -->
+            <div id="div1" class="messege_page"></div>
+
+            <!-- MESSEGE INPUT FILD -->
+            <div class="send_section" data-role="footer" data-position="fixed">
+                <div class="send_icon">
+                    <a href="#" class="navigation_icon ui-btn ui-icon-navigation ui-btn-icon-notext ui-corner-all">No text</a>
+                    <span class="sender_name_panel">Sender Name : <span class="sender_name"></span></span>
+                </div>
+                <div id="messege_area" class="messege_area">
+                    <textarea id="messege" type="textarea" placeholder="messege"></textarea>
+                    <input id="send_messege_btn" type="submit" value="Send">
+                </div>
+            </div>
+        </div><!-- /content -->
+    
+        
+</div><!-- /page -->
+
+
+
+
+
+
+
+<!-- USER PAGE -->
+<div data-role="page" id="user_page">
+
+    <div class="header" data-role="header" data-position="fixed">
+        <h1>ALL USER'S</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="class-page-content ui-content">
+
+        <!-- ALL USER SHOWING HEAR -->
+        <div class="user_page_section"> </div>
+
+    </div><!-- /content -->
+    <div class="footer" data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+        
+</div><!-- /page -->
+
+
+    <!--js file-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mobail_js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/custom.js"></script>
+    
+</body>
+</html>
