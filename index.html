@@ -8,14 +8,19 @@
     <!--stylesheet-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="js/mobail_js/jquery.mobile-1.4.5.min.css">
-    
+    <link rel="stylesheet" href="js/fontawesome-free-5.6.3-web/css/all.min.css">
+    <!-- <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.min.css"> -->
 
     <title>Document</title>
 </head>
 <body>
     
 
-<!-- Start of 1 page -->
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ LOGIN PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
 <div data-role="page" id="login-page">
 
 	<div class="header" data-role="header" data-position="fixed">
@@ -25,14 +30,13 @@
 	<div role="main" class="ui-content">
         <div class="logo">
             <img src="img/SoftTech-IT-logo.png" alt="">
-            <a href="#" class="url">what is url</a>
         </div>
         <div class="Login-form">
-            <input type="email" id="login_email" placeholder="Email" value="abkorim1998@Gmail.com">
-            <input type="password" id="login_password" placeholder="Password" value="abkorim2">
+            <input type="email" id="login_email" placeholder="Email" required>
+            <input type="password" id="login_password" placeholder="Password" required>
             <div class="form-button">
                 <div class="ui-grid-b">
-                    <div class="ui-block-a"><a class="ui-shadow ui-btn ui-corner-all" id="login_btn">Log In</a></div>
+                    <div class="ui-block-a"><a href="" class="ui-shadow ui-btn ui-corner-all" id="login_btn">Log In</a></div>
                     <div class="ui-block-b"><a href="#register-page" class="ui-shadow ui-btn ui-corner-all">Register</a></div>
                 </div>
             </div>
@@ -49,7 +53,11 @@
 
 
 
-<!-- Start of 2 page -->
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ REGISTER PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
 <div data-role="page" id="register-page">
 
 	<div class="header" data-role="header" data-position="fixed">
@@ -64,8 +72,8 @@
                     <input type="text" id="re_name" placeholder="Full Name">
                     <input type="text" id="re_roll" placeholder="Roll Number">
                     <input type="tel" id="re_phone" placeholder="Phone Number">
-                    <input type="email" id="re_email" placeholder="Email">
-                    <input type="password" id="re_password" placeholder="Password">
+                    <input type="email" id="re_email" placeholder="Email" required>
+                    <input type="password" id="re_password" placeholder="Password" required>
                     <div class="form-button">
                         <div class="ui-grid-b">
                             <div class="ui-block-a"><a href="#login-page" class="ui-shadow ui-btn ui-corner-all">Log In</a></div>
@@ -74,7 +82,7 @@
                     </div>
                 </div>
 	</div><!-- /content -->
-    
+
 	<div class="footer" data-role="footer" data-position="fixed">
 		<h4>Page Footer</h4>
 	</div><!-- /footer -->
@@ -82,13 +90,19 @@
 
 
 
-
-
-<!-- Start of 3 page -->
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ DASHBOARD PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
 <div data-role="page" id="Dashboard">
 
     <div class="header" data-role="header" data-position="fixed">
+        
+        <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
+        
         <h1>Dashboard</h1>
+
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
@@ -100,18 +114,17 @@
 
             <!-- user_img & user_img -->
             <div class="user_img">
-                <img src="img/user-image-.png">
-                <input type="file" name="file" id="file"> 
-                <a href="#" class="url">what is url</a>
+                <img src="img/user-image-.png" id="u-image">
+                <input type="file" name="file" id="file">
             </div>
 
             <!-- contac_section & contac_section -->
             <div class="contac_section">
                 <div data-demo-html="true" data-demo-css="#wrap">
                     <div class="ui-grid-b">
-                        <div class="ui-block-a"><a href="#class-page" class="ui-shadow ui-btn ui-corner-all">Class</a></div>
-                        <div class="ui-block-b"><a href="#" class="sign-out ui-shadow ui-btn ui-corner-all">Sign out</a></div>
-                        <div class="ui-block-c"><a href="#user_page" class="user_page_btn ui-shadow ui-btn ui-corner-all">user</a></div>
+                        <div class="ui-block-a"><a href="#posts-page" class="posts-btn ui-shadow ui-btn ui-corner-all">Posts</a></div>
+                        <div class="ui-block-c"><a href="#user_page" class="user_page_btn ui-shadow ui-btn ui-corner-all">User</a></div>
+                        <div class="ui-block-b"><a href="#" class="sign-out ui-shadow ui-btn ui-corner-all">Exit</a></div>
                     </div>
                 </div>
             </div>
@@ -142,10 +155,128 @@
    
 
 
-<!-- MESSEGE PAGE -->
+
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ PROFILE PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
+<div data-role="page" id="profile-page">
+
+    <div class="header" data-role="header" data-position="fixed">
+            <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
+        <h1 id="profile-page-heaader-h1">profile</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <div class="user_section">
+
+
+            <!-- user_img & user_img -->
+            <div class="user_img">
+                <img src="img/user-image-.png" id="p-image">
+            </div>
+
+            <!-- contac_section & contac_section -->
+            <div class="contac_section">
+                <div data-demo-html="true" data-demo-css="#wrap">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-b"><a  href="#class-page" class="ui-shadow ui-btn ui-corner-all">Massege</a></div>
+                        <div class="ui-block-b"><a href="#gallery-page" class="photo-btn ui-shadow ui-btn ui-corner-all">Photo</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-posts"></div>
+            
+
+        </div>
+    </div><!-- /content -->
+
+    <div class="footer" data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ POSTS PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
+<div data-role="page" id="posts-page">
+
+    <div class="header" data-role="header" data-position="fixed">
+            <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
+        <h1>posts</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <div class="overlycolor ">
+            <div id="post-form-and-icon">
+                
+                <div class="post_icon">
+                    <a href="#" class="navigation_icon ui-btn ui-icon-navigation ui-btn-icon-notext ui-corner-all">No text</a>
+                    <span class="sender_name_panel">Writer name : <span class="writer-name"></span></span>
+                </div>
+
+                <!-- post form -->
+                <form action="" class="post_form">
+                    <div class="post-submit-form">
+
+                        <!-- hiden input -->
+                        <div class="post_image_uplod_input">
+                            <input type="file" name="file" id="images" class="" >
+                        </div>
+
+                        <div class="post_file_uplod_input">
+                            <input type="file" name="file"  id="files" class="" >
+                        </div>
+                        
+                        <!-- post tiitle & content input -->
+                        <input placeholder="Title" type="text" name="title" id="title">
+                        <textarea placeholder="Write your post.." name="content" id="content"></textarea>
+                        <ul class="slected-file"></ul>
+
+                        <!-- post form button -->
+                        <div class="ui-grid-b">
+
+                            <div class="ui-block-a"><a href="#" class="posts-submit-btn ui-shadow ui-btn ui-corner-all">Submit</a></div>
+                            <div class="ui-block-b mini-upload-btn">
+                                <label for="images" class="btn"><i class="fas fa-image"></i></label>
+                                <label for="files" class="btn"><i class="fas fa-file-upload"></i></label>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="user_posts_section">
+        </div>
+    </div><!-- /content -->
+
+    <div class="footer" data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+</div>
+
+
+
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ MASSEGE PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
 <div data-role="page" id="class-page">
 
         <div class="header" data-role="header" data-position="fixed">
+            <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
             <h1 class="receiver_name">Tack Your Class</h1>
         </div><!-- /header -->
     
@@ -173,13 +304,46 @@
 
 
 
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ GALLERY PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
+<div data-role="page" id="gallery-page">
+
+    <div class="header" data-role="header" data-position="fixed">
+            <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
+        <h1 class="receiver_name">Gallery Page</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content messege_content ">
+    
+        <div class="galley-section">
+          
+        </div>
+        
+        
+
+    </div><!-- /content -->
+    
+    <div class="footer" data-role="footer" data-position="fixed">
+        <h4>Page Footer</h4>
+    </div><!-- /footer --> 
+        
+</div><!-- /page -->
 
 
 
-<!-- USER PAGE -->
+
+<!--
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+    //--------------------------\\ USER PAGE //-----------------------------
+    //-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+-->
 <div data-role="page" id="user_page">
 
     <div class="header" data-role="header" data-position="fixed">
+        <a data-rel="back" class="navigator ui-shadow ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-inline">Button</a>
         <h1>ALL USER'S</h1>
     </div><!-- /header -->
 
@@ -199,6 +363,8 @@
     <!--js file-->
     <script src="js/jquery.min.js"></script>
     <script src="js/mobail_js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/fontawesome-free-5.6.3-web/js/all.min.js"></script>
+    <!-- <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.jss"></script> -->
     <script src="js/custom.js"></script>
     
 </body>
