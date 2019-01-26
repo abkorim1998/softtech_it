@@ -1,6 +1,6 @@
 (function(){
     
-    var phppage = "http://127.0.0.1/app/app.php";
+    var phppage = "https://softtech-it.000webhostapp.com/app.php";
     //login & register button dom here
     var loginBtn = document.querySelector("#login_btn");
     var registerBtn = document.querySelector("#register_btn");
@@ -177,7 +177,6 @@
 
     //GET USER MESSEGE FORM DATABASE AND SEND IT TO THE APP
     $(".user_page_section").on("click",".users_page_messege_btn", function(){
-        $('.messege_page').empty();
 
         // //SHOWING USER NAME INTO HEADING IN MESSEGE PAGE
         var x = $(this).parents(".container");
@@ -192,39 +191,24 @@
         location.href = "#class-page";
 
         //REQUEST TO SERVER FOR SHOWING USER MESSEGES
-
-        
-        function ms_function(){
-            $.ajax({
-                    url : phppage,
-                    type: "POST",
-                    // dataType: "json",
-                    data: {
-                        show_messege :"",
-                        sender_name    :sender_name,
-                        receiver_name  :receiver_name,
-                    },
-                    success: function ( data ){
+        setInterval(function(){
+                $.ajax({
+                        url : phppage,
+                        type: "POST",
+                        // dataType: "json",
+                        data: {
+                            show_messege :"",
+                            sender_name    :sender_name,
+                            receiver_name  :receiver_name,
+                        },
+                        success: function ( data ){
+                            
+                            $('.messege_page').html( data );
                         
-                        $('.messege_page').html( data );
-                    
-                    },
-    
-            })
-        }
-
-        $(document).on("pagechange", function (e, data) {
-            var ms = setInterval( ms_function , 1000);
-            var pageid = data.toPage[0].id;
-            if( pageid == "class-page" ){
-                var ms = setInterval( ms_function , 1000);
-                alert(pageid)
-            }else{
-                clearInterval(ms);
-            }
-            
-            
-        });
+                        },
+           
+                })
+        },1000)
 
 
         //REQUEST FOR CREATING DATABASE
@@ -377,12 +361,12 @@
 
     })
     
+   
     //sign-out
     $('.sign-out').click(function() {
-    location.reload();
-    location.href= "#login-page";
+        location.reload();
+        location.href= "#login-page";
     })
-   
     
   
 
