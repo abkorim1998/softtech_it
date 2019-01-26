@@ -1,15 +1,22 @@
 <?php
 
-//for Allow server requers 
-header('Access-Control-Allow-Origin: *');
-//database bonnection
-require_once('connection.php');
+
+header('Access-Control-Allow-Origin: *'); //for Allow server requers 
+require_once('connection.php'); //database Connection
+
+$httpLocation = "";
+$localHostlocation = str_replace('\\', '/', dirname(__FILE__))."/";
+$urlPath = !empty($httpLocation)  ? $httpLocation : $localHostlocation ;
 
 
 
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| GET REGISTER INFORMATION THEN ||----------------------------
+//-------------------------|| SENT TO MYSQUL DATABASE    ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-//get register info a sent to MYsQul database
 if( isset( $_POST['register'] ) ){
+
     $name       = $_POST["j_name"];
     $roll       = $_POST["j_roll"];
     $phone      = $_POST["j_phone"];
@@ -35,7 +42,13 @@ if( isset( $_POST['register'] ) ){
 }
 
 
-//get login info parmid or not user to login
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| GET LOGIN INFORMATION THEN ||----------------------------
+//-------------------------|| PARMTED OR NOT TO LOGIN    ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if(isset($_POST['login'])){
 
     $email      = $_POST["email"];
@@ -55,7 +68,15 @@ if(isset($_POST['login'])){
 }
 
 
-//get user information from database and send to app
+
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| GET USER INFORMATION       ||----------------------------
+//-------------------------|| FROM DATABASE & SEND TO APP    ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if(isset($_POST['user_info'])){
 
     $email      = $_POST["email"];
@@ -82,7 +103,12 @@ if(isset($_POST['user_info'])){
 }
 
 
-//GET ALL USER INFORMATION FROM DATABASE & SEND TO APP
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| GET ALL USER INFORMATION       ||----------------------------
+//-------------------------|| FROM DATABASE & SEND TO APP    ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if( isset( $_POST['getin_user'] ))
 {
     $get_all_users = mysqli_query($connect, "SELECT * FROM students");
@@ -95,6 +121,8 @@ if( isset( $_POST['getin_user'] ))
             "name" => $row['fname'],
             "roll" => $row['roll'],
             "USER_ID" => $row['id'],
+			"phone" => $row['phone'],
+			"email" => $row['email'],
             "image" => $row['images'],
         );
     }
@@ -105,7 +133,43 @@ if( isset( $_POST['getin_user'] ))
 
 
 
-//CREATE TABLE FOR USER MESSEGES
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------||    GET PROFIL INFO       ||----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+if( isset( $_POST['getin_user_profile'] ))
+{
+	$name = $_POST['profile_user_name'];
+	
+    $get_all_users = mysqli_query($connect, "SELECT * FROM students WHERE fname ='$name' ");
+    
+    $json_array = array();
+
+    while($row = mysqli_fetch_assoc($get_all_users))
+    {
+        $json_array[] = array(
+            "name" => $row['fname'],
+            /* "roll" => $row['roll'],
+            "USER_ID" => $row['id'],
+			"phone" => $row['phone'],
+			"email" => $row['email'], */
+            "image" => $row['images'],
+        );
+    }
+    echo json_encode($json_array);
+}
+
+
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| CREATE TABLE FOR       ||----------------------------
+//-------------------------|| USER MESSEGES          ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if(isset($_POST['create_table'])){
 
     //SENDER & RECEIVER DATA
@@ -134,7 +198,6 @@ if(isset($_POST['create_table'])){
             sender_name TEXT,
             ms_message TEXT,
             ms_time TEXT,
-            
             PRIMARY KEY(ms_id)
         )");
 
@@ -156,8 +219,11 @@ if(isset($_POST['create_table'])){
 
 
 
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| RECEVING DATA FROM APP  ||----------------------------
+//-------------------------|| AND INSURT INTO RIGHT TABLE ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
-//RECEVING DATA FROM APP AND INSURT INTO RIGHT TABLE
 if( isset( $_POST['ms_has_send'] ) ){ 
 
     //SENDER & RECIVER INFO
@@ -209,7 +275,11 @@ if( isset( $_POST['ms_has_send'] ) ){
 
 
 
-//RECEVING DATA FROM DATABASE AND SHOWING INTO THE APP
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//-------------------------|| RECEVING DATA FROM DATABASE ||----------------------------
+//-------------------------|| AND SHOWING INTO THE APP ||-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if( isset( $_POST["show_messege"] ) ){
 
     $sender_name = $_POST['sender_name'];
@@ -323,22 +393,34 @@ if( isset( $_POST["show_messege"] ) ){
 }
 
 
-//PROFILE IMAGE UPLOADED
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//--------------------------\\ PROFILE IMAGE UPLOADED //-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
 if(isset($_POST['uploded'])){
     
     
     $sender_name     = $_POST["sender_name"];
-    $destination     = "upload/".$_FILES["file"]["name"];
-    $filename        = $_FILES["file"]["tmp_name"];
-    $path            = str_replace('\\', '/', dirname(__FILE__))."/".$destination ;
+
+    $fileTmpName        = $_FILES["file"]["tmp_name"];
+    $fileName           = $_FILES["file"]["name"];
+    $fileExt            = explode('.', $fileName);
+    $fileActualExt      = strtolower(end($fileExt));
+    $fileNewName        = uniqid('', true).".".$fileActualExt;
+
+    $destination     = "upload/".$fileNewName;
+    
+    $path            = $urlPath.$destination ; //for database record
     
 
-    if(move_uploaded_file($filename, $destination)){
+    if(move_uploaded_file($fileTmpName, $destination)){
 
         $sucss = mysqli_query( $connect, "UPDATE students SET images = '$path' WHERE fname = '$sender_name'");
         $sql   = mysqli_query( $connect, "SELECT * FROM students WHERE fname = '$sender_name'");
         
-
 
         while( $row = mysqli_fetch_assoc( $sql )){ 
         
@@ -348,5 +430,131 @@ if(isset($_POST['uploded'])){
         } 
 
     }
+
+}
+
+
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//--------------------------\\ POSTS SUBMIT //-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+if(isset($_POST['post_submit'])){
+    
+    
+    $sender_name     = $_POST["sender_name"];
+    $content     = $_POST["content"];
+    $title     = $_POST["title"];
+    
+    //file detelts
+    if(isset($_FILES["files"])){
+        $fileTmpName        = $_FILES["files"]["tmp_name"];
+        $fileName           = $_FILES['files']['name'];
+        $fileExt            = explode(".", $fileName);
+        $fileActualExt      = strtolower(end($fileExt));
+        $fileNewName        = uniqid('', true).".".$fileActualExt;
+        $file_desti         = "upload/".$fileNewName;
+        $file_path          = $urlPath.$file_desti; //for database record
+        move_uploaded_file($fileTmpName, $file_desti);
+    }
+    
+
+    // image
+    if(isset($_FILES["image"])){
+        $imgTampName        = $_FILES["image"]["tmp_name"];
+        $imgName            = $_FILES["image"]["name"]; 
+        $imgExt             = explode(".", $imgName);
+        $imgActualExt       = strtolower(end($imgExt));
+        $allowed = array("jpg", "jpeg", "png");
+        if(in_array($imgActualExt, $allowed)){
+            $imgNewName         = uniqid("", true).".".$imgActualExt;
+            $image_desti        = "upload/".$imgNewName;
+            $image_path         = $urlPath.$image_desti; //for database record
+            move_uploaded_file($imgTampName, $image_desti);
+        }else{
+            echo "This image not supported";
+        }
+    }
+
+    //validation
+    $image  = isset($image_path) ? $image_path : null ;
+    $file   = isset($file_path) ? $file_path : null ;
+    $tit    = htmlspecialchars($title);
+    $cont    = htmlspecialchars($content);
+
+
+    $query = "INSERT INTO posts(user,title,content,thumbnail,fils) VALUES('$sender_name','$tit','$cont','$image','$file')";
+    $sucss = mysqli_query( $connect, $query);
+
+    if($sucss){
+        echo "Good job, post submited";
+    }else{
+        echo "there is a problem";
+    }
+
+    
+
+}
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//--------------------------\\ Geting Posts Form Database for page //-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+if(isset($_POST['get_posts'])){
+
+    $user = $_POST['user_name'];
+
+    $query = "SELECT * FROM posts WHERE user = '$user' ORDER BY post_id DESC";
+
+    $sql = mysqli_query( $connect, $query );
+
+    $json_array = array();
+    while($row = mysqli_fetch_assoc($sql))
+    {
+        $json_array[] = array(
+
+            "title"        => $row['title'],
+            "content"      => $row['content'],
+            "thumbnail"    => $row['thumbnail'],
+			"fils"         => $row['fils'],
+
+        );
+    }
+
+    echo json_encode($json_array);
+
+}
+
+
+
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+//--------------------------\\ Geting User Imag Form  //-----------------------------
+//--------------------------\\ Database for Gallary page //-----------------------------
+//-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+if(isset($_POST['get_user_img'])){
+
+    $user = $_POST['user_name'];
+
+    $query = "SELECT * FROM posts WHERE user = '$user'";
+
+    $sql = mysqli_query( $connect, $query );
+
+    $json_array = array();
+    while($row = mysqli_fetch_assoc($sql))
+    {
+        $json_array[] = array(
+
+            // "title"        => $row['title'],
+            // "content"      => $row['content'],
+            "thumbnail"    => $row['thumbnail'],
+			// "fils"         => $row['fils'],
+
+        );
+    }
+
+    echo json_encode($json_array);
 
 }
